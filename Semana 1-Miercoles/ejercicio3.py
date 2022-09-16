@@ -1,1 +1,1 @@
-xd
+print('hello world')
