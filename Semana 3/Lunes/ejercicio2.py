@@ -1,7 +1,4 @@
 ##TriangulitoO
-from timeit import repeat
-
-
 number=input('Escribe un número: ')
 if number.isnumeric:
     number=int(number)
