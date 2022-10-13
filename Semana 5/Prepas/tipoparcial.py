@@ -3,20 +3,23 @@ def main():
     trimestre1=[]
     trim=0
     print_welcome()
-    x=get_student_data(trim)
-    trimestre2, trimestre1, trim = trimestre(x, trimestre2, trimestre1, trim)
-    printing(x)
+    trimestre2, trimestre1, trim = trimestre(y, trimestre2, trimestre1, trim)
+    y=get_student_data(trim)
+    printing(y)
 
 def print_welcome():
     print("*** Bienvenido ***")
 
 def get_student_data(trim):
-    student = {
+    while True:
+        student = {
         "cédula":input("Ingrese su cédula: "),
         "nombre":input("Ingrese su nombre y apellido: "),
         "promedio de notas":float(input('Ingrese su promedio: ')),
         "trimestre": trim
-    }
+        }
+        if input('Ingrese n para salir, otra cosa para continuar: ')=='n':
+            break 
     return student
 
 
