@@ -3,8 +3,8 @@ def main():
     trimestre1=[]
     trim=0
     print_welcome()
-    trimestre2, trimestre1, trim = trimestre(y, trimestre2, trimestre1, trim)
     y=get_student_data(trim)
+    trimestre2, trimestre1, trim = trimestre(y, trimestre2, trimestre1, trim)
     printing(y)
 
 def print_welcome():
