@@ -17,10 +17,10 @@ def get_client_data(study):
     }
     return client
     
-def get_discounts(client, studies,client_number):
+def get_discounts(client, studies,client_number, studies_dict):
     discount = 0
     if client.get("gender") == "F" and int(client.get("age")) > 55:
-        discount += studies.get(client.get("study")).get("price") * 0.25
+        discount += studies.get(client.get("study"));studies_dict.get("price") * 0.25
     elif client.get("gender") == "M" and int(client.get("age")) > 65:
         discount += studies.get(client.get("study")).get("price") * 0.25
     
@@ -58,6 +58,7 @@ def main():
             "price": 15600
         }
     }
+    study=studies_dict.get()
     clients = []
     total_discounts = 0
     total_net_amount = 0
