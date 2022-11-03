@@ -16,6 +16,9 @@ def main():
         
         for race in range(races):
             
-            race_objetc= Race(race, horse_list)
-            race_list
+            race_object= Race(race, horse_list)
+            race_list.append(race_object)
+        for race in race_list:
+            race.start_race()
+            race.choose_winner()
 main()
