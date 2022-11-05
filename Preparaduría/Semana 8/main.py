@@ -4,15 +4,20 @@ from Alimento import Bebida
 from usuario import Usuario
 
 def usuario():
-    try:
-        nombre=input('Ingrese su nombre: --> ')
-        apellido=input('Ingrese su apellido: --> ')
-        nacimiento=input('Ingrese su fecha de nacimiento dividida por barras (así 1/01/01): --> ')
-        cédula=int(input('Ingrese su cédula:--> '))
-        cuenta=0
-        cliente= Usuario(nombre, apellido, nacimiento, cédula, cuenta)
-    except SyntaxError:
-        print('ingrese sus datos de nuevo: --> ')
+    while True:
+        try:
+            nombre=input('Ingrese su nombre: --> ')
+            apellido=input('Ingrese su apellido: --> ')
+            nacimiento=input('Ingrese su fecha de nacimiento dividida por barras (así 1/01/01): --> ')
+            cédula=int(input('Ingrese su cédula:--> '))
+            cuenta=0
+            cliente= Usuario(nombre, apellido, nacimiento, cédula, cuenta)
+            if nombre.isnumeric== False and apellido.isnumeric==False:
+                break
+            else:
+                print('Ingrese sus datos de nuevo')
+        except SyntaxError and ValueError:
+            print('Ingrese sus datos de nuevo')
     return cliente
 
 def alimento(cliente, comida):
