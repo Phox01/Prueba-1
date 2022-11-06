@@ -12,10 +12,12 @@ def usuario():
             cédula=int(input('Ingrese su cédula:--> '))
             cuenta=0
             cliente= Usuario(nombre, apellido, nacimiento, cédula, cuenta)
-            if nombre.isnumeric== False and apellido.isnumeric==False:
-                break
-            else:
+            if nombre.isnumeric== True and apellido.isnumeric==True:
                 print('Ingrese sus datos de nuevo')
+            ##No rompe el ciclo, se regresa al principio
+            else:
+                break
+            
         except SyntaxError and ValueError:
             print('Ingrese sus datos de nuevo')
     return cliente
