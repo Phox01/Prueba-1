@@ -1,0 +1,2 @@
+tarea=open("tarea.txt")
+
