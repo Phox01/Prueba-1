@@ -1,23 +1,25 @@
 class Estadio:
-    def __init__(self, name, location, id, capacity, restaurant):
+    def __init__(self, name, location, id, capacity, restaurant, seats, occupied_seats):
         self.name=name
         self.location=location
         self.id=id
         self.capacity=capacity
         self.restaurant=restaurant
+        self.seats=seats
+        self.occupied_seats=occupied_seats
 
-    def printings(self, selections):
+    def printings(self):
      
         number = "10"
         letter2 = 'A'
-        asientos=[]
+        
         for row in range(self.capacity[0]):
             letter2='A' 
             for col in range(self.capacity[1]):
                 i=0
                 asiento=letter2+number
-                for x in selections:
-                    if x ==asiento:
+                for x in self.occupied_seats:
+                    if x==asiento:
                         print("[X]", end=' ')
                         letter2 = chr(ord(letter2) + 1)
                         asiento=letter2+number
@@ -29,7 +31,7 @@ class Estadio:
                     pass
                 else:
                     print(asiento, end=' ')
-                    asientos.append(asiento)
+                    self.seats.append(asiento)
                     letter2 = chr(ord(letter2) + 1)
                 
                 
@@ -38,5 +40,5 @@ class Estadio:
             number+=1
             number=str(number)
             #self.capacity[1]+=i
-        return asientos
+        return self.seats
 
