@@ -88,7 +88,7 @@ def Game_Converter(games_data, juegos, equipos, estadios):
         date=date_hour[0]
         hour=date_hour[1]
         
-        juegos.append(Partido(lteam, vteam, date, hour, stadium, z["id"]))
+        juegos.append(Partido(lteam, vteam, date, hour, stadium, z["id"], 0))
 #    for i in juegos:
 #        print(i.vteam)
     return juegos
@@ -588,7 +588,7 @@ def main():
                     get_tickets(juegos, estadios, bought_tickets, clients, get_id(juegos), data, get_number_vampire(data), your_tickets_id, codes)
                     
                 elif election==3:
-                    Validación(clients, bought_tickets)
+                    Validación(bought_tickets)
 
                 elif election==4:
                     monto=0
@@ -672,18 +672,28 @@ def main():
                     for a in clients:
                         for b in a.tickets:
                             for c in bought_tickets:
-                                if c.code==y:
+                                if c.code==b:
                                     if c.type=="VIP":
                                         promedio+=a.monto
                                         clientesVIP+=1
                                     elif c.type=="GENERAL":
                                         clientesGENERAL+=1
                     print(f"{promedio-(50*clientesGENERAL+50*clientesGENERAL*0.16)/clientesVIP} $")
+                    
                     print("Tabla de asistencia en cada partido")
                     for a in juegos:
-                        for b in estadios:
-                            if a.estadio==b.name:
-                                
+                        for b in bought_tickets:
+                            if a.id==b.id:
+                                if b.validate==True:
+                                    a.asistencia+=1
+                    juegos=sorted(juegos, key=lambda partido: partido.asistencia, reverse=True)
+                    print(f"Los primeros 3 partidos tienen los sig id: 1. {juegos[0].id} 2. {juegos[1].id} 3.{juegos[3].id}")
+                    clients=sorted(clients, key=lambda cliente: len(cliente.tickets), reverse=True)
+                    print(f"Los primeros 3 clientes tienen los sig nombres: 1. {clients[0].name} 2. {clients[1].name} 3.{clients[2].name}")
+
+                    #juegos.sort(for i in juegos, key=i.asistencia)
+
+
 
                     
                     
