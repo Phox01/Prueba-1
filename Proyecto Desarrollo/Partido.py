@@ -7,5 +7,5 @@ class Partido:
         self.estadio=estadio
         self.id=id
     def Show(self):
-        print(f"{self.lteam.name} vs {self.vteam.name} en el {self.estadio.name} (Id:{self.id})\nFecha:{self.date} Hora:{self.hour}")
-        print("==========================")
+        print(f"{self.lteam} vs {self.vteam} en el {self.estadio} (Id:{self.id})\nFecha:{self.date} Hora:{self.hour}")
+        print("---------------------------------------------------")
